@@ -1,6 +1,6 @@
 # Assignment 1: Frogger Optimization
 
-### Optimzation Techniques
+### Optimization Techniques
 
 - Combined all images into single sprite sheet
 - Removed jQuery file
