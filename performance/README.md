@@ -1,6 +1,11 @@
-# Assignment 1: Frogger Optimzation
+# Assignment 1: Frogger Optimization
 
 ### Optimzation Techniques
+
+- Combined all images into single sprite sheet
+- Removed jQuery file
+- Added JavaScript links to bottom of body instead of head
+- Compressed all code using Minifiers 
 
 ### Offline Application Cache
 
