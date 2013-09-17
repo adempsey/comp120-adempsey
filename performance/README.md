@@ -1,5 +1,7 @@
 # Assignment 1: Frogger Optimization
 
+Optimized game located at http://adempsey.github.io/frogger
+
 ### Optimization Techniques
 
 - Combined all images into single sprite sheet
