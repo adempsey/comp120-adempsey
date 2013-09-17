@@ -40,10 +40,10 @@ Other data collection was conducted through Chrome Developer Tools.
 
 **Post-Optimization (no files cached):**
 
-- **Requests**: 12
-- **Data Transferred**: 143 KB
+- **Requests**: 10
+- **Data Transferred**: 30.7 KB
 
-Data transfer was reduced by roughly 25% from optimization.
+Data transfer was reduced by roughly 83% from optimization.
 
 ### Issues
 
