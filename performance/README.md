@@ -6,6 +6,7 @@
 - Removed jQuery file
 - Added JavaScript links to bottom of body instead of head
 - Compressed all code using Minifiers 
+- Utilizes HTML5 offline application cache
 
 ### Offline Application Cache
 
