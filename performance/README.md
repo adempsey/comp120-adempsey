@@ -29,7 +29,7 @@ A manifest file located in the game's root directory called "cache.manifest" was
 	
 which represent the entirety of the game's static content files.
 
-To ensure the cache was working the page was first loaded, and then the computer was disconnected from the internet. The page was then refreshed, and the game still continued to function, thus showing that the offline application cache was active and functioning.
+To ensure the cache was working, the page was first loaded, and then the computer was disconnected from the internet. The page was then refreshed, and the game still continued to function, thus showing that the offline application cache was active and functioning.
 
 ### Tools
 
