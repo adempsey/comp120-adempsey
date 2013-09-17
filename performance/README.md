@@ -33,12 +33,12 @@ The application was initially tested using Yahoo!'s YSlow Chrome extension. Howe
 Other data collection was conducted through Chrome Developer Tools.
 
 ### Performance
-**Pre-Optimization:**
+**Pre-Optimization (no files cached):**
 
 - **Requests**: 13
 - **Data Transferred**: 189 KB
 
-**Post-Optimization:**
+**Post-Optimization (no files cached):**
 
 - **Requests**: 12
 - **Data Transferred**: 143 KB
