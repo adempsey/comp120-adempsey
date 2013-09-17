@@ -28,7 +28,7 @@ which represent the entirety of the game's static content files.
 
 ### Tools
 
-The application was initially tested using Yahoo!'s YSlow Chrome extension. However, YSlow gave the unoptimized application an 'A' grade; the only suggestions provided were to 1. Use a CDN (not applicable) and 2. Add Expiry Headers. While the second suggestion was relevant, overall, YSlow was not particularly helpful.
+The application was initially tested using Yahoo!'s YSlow Chrome extension. However, YSlow gave the unoptimized application an 'A' grade; the only suggestions provided were to 1. Use a CDN (not applicable) and 2. Add Expiry Headers (hosted on Github web hosting; no access to server configuration). Thus, YSlow was not particularly helpful.
 
 Other data collection was conducted through Chrome Developer Tools.
 
