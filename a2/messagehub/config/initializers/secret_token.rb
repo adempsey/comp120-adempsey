@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Messagehub::Application.config.secret_key_base = '6ab29f841608a0ce6d428a263abfc7e659bc91de8732e39be4af443697538b8bcb7cd407b1645dccb1486f02650223347580ab64efe8af90b89393c87f26560b'
+Messagehub::Application.config.secret_key_base = '9b7eeba70861416197f2dd8fe4fc571f0be8cc6388b6cdfabd116761b4f6dd24dc200aac2c32e0a441db645ee454e5e3747170ef3175715db074be55f92ad753'
