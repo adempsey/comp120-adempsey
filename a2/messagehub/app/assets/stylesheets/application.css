@@ -24,7 +24,7 @@ body {
 
 .message {
 	width: 100%-10px;
-	min-height: 100px;
+	min-height: 70px;
 	padding: 10px;
 	border-bottom: 1px solid #AAAAAA;
 }
@@ -32,7 +32,8 @@ body {
 .message_content {
 	font-size: 24px;
 	font-weight: bold;
-	height: 80px;
+	min-height: 50px;
+	overflow: scroll;
 }
 
 .message_info {
