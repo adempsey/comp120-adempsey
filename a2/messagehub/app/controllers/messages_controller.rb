@@ -11,5 +11,7 @@ class MessagesController < ApplicationController
   end
 
   def show
+    @message = Message.find(params[:id])
+    puts @message
   end
 end
