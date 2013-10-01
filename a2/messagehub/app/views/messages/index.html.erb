@@ -4,7 +4,10 @@
 	<% @messagelist.each do |message| %>
 		<div class="message">
 			<div class = "message_content"><%= message.content %></div>
-			<span class="message_info">Posted by <%= message.username %> at <%= message.created_at %></span>
+			<span class="message_info">
+				Posted by <%= message.username %> 
+				<%= timeago_tag message.created_at %>
+			</span>
 		</div>
 	<% end %>
 </div>
