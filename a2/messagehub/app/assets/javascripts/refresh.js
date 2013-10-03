@@ -13,6 +13,7 @@ $("document").ready(function() {
 				content+='</span></div>'
 			};
 			$("#container").html(content);
+			console.log(content);
 		})
 	},5000);
 });

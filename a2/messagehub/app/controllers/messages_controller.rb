@@ -8,13 +8,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-  	@message = Message.new(params[:message].permit(:username, :content, :app_id))
-  	@message.active = true
-  	@message.save
+  	message = Message.new(params[:message].permit(:username, :content, :app_id))
+  	message.active = true
+  	message.save
   end
 
   def show
     @message = Message.find(params[:id])
-    puts @message
   end
 end
