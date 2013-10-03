@@ -1,7 +1,10 @@
 class MessagesController < ApplicationController
   skip_before_filter :verify_authenticity_token
   def index
-  	@messagelist = Message.all.order('created_at DESC')
+    @messagelist = Message.all.order('created_at DESC')
+    if request.format == "application/json"
+      render json: @messagelist
+    end
   end
 
   def create
