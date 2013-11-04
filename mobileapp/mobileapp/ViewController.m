@@ -17,7 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,32 +45,11 @@
         self.messageStatus.text = @"Message sent successfully";
     }
     (void) data;
+    [self.view endEditing:YES];
 }
 
-//NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-//[request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.twitter.com/1.1/trends/place.json?id=%@&exclude=hashtags",woeid]]];
-//[request setHTTPMethod:@"GET"];
-//[request setValue:BEARER forHTTPHeaderField:@"Authorization"];
-//NSError* error = nil;
-//
-//NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-////    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-//
-//if (error) {
-//    NSLog(@"error loading trends");
-//} else {
-//    NSError* jsonError;
-//    id jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-//    NSDictionary* twitterData = ([jsonData isKindOfClass:[NSArray class]])?[jsonData objectAtIndex:0]:jsonData;
-//    if (jsonError) {
-//        NSLog(@"json error");
-//    } else {
-//        self.trends = [twitterData objectForKey:@"trends"];
-//        self.date = [twitterData objectForKey:@"created_at"];
-//        self.location = [[[twitterData objectForKey:@"locations"] objectAtIndex:0] objectForKey:@"name"];
-//        self.woeid = [[[twitterData objectForKey:@"woeid"] objectAtIndex:0] objectForKey:@"woeid"];
-//    }
-//}
-
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
 
 @end
