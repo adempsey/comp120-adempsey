@@ -30,9 +30,9 @@
     NSMutableURLRequest* messagerequest = [[NSMutableURLRequest alloc] init];
     [messagerequest setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:3000"]]];
     [messagerequest setHTTPMethod:@"POST"];
-    [messagerequest setValue:self.username.text forKey:@"username"];
-    [messagerequest setValue:self.message.text forKey:@"message"];
-    [messagerequest setValue:@"1" forKey:@"app_id"];
+    [messagerequest setValue:self.username.text forHTTPHeaderField:@"username"];
+    [messagerequest setValue:self.message.text forHTTPHeaderField:@"message"];
+    [messagerequest setValue:@"1" forHTTPHeaderField:@"app_id"];
     NSError* error = nil;
     
     NSData* data = [NSURLConnection sendSynchronousRequest:messagerequest returningResponse:nil error:&error];
