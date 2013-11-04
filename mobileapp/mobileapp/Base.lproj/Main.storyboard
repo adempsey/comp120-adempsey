@@ -46,13 +46,22 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendMessage:withMessage:fromUsername:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="th1-Wx-6GK"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkJ-F4-iab">
+                                <rect key="frame" x="41" y="307" width="238" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="message" destination="nRB-br-eRY" id="WNd-wQ-oqh"/>
-                        <outlet property="submit" destination="Xft-Xh-dHK" id="Ol7-Z1-0nq"/>
+                        <outlet property="messageStatus" destination="TkJ-F4-iab" id="Whm-Ed-qQh"/>
                         <outlet property="username" destination="HNg-25-X1C" id="icD-dK-9Qn"/>
                     </connections>
                 </viewController>

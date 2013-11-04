@@ -11,6 +11,6 @@
 @interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *username;
 @property (strong, nonatomic) IBOutlet UITextField *message;
-@property (strong, nonatomic) IBOutlet UIButton *submit;
+@property (strong, nonatomic) IBOutlet UILabel *messageStatus;
 
 @end
