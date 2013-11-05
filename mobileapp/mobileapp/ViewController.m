@@ -29,12 +29,12 @@
 
 - (IBAction)sendMessage:(id)sender {
     NSMutableURLRequest* messagerequest = [[NSMutableURLRequest alloc] init];
-    [messagerequest setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:3000"]]];
+    [messagerequest setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://0.0.0.0:3000/messages"]]];
     [messagerequest setHTTPMethod:@"POST"];
-    [messagerequest setValue:self.username.text forHTTPHeaderField:@"username"];
-    [messagerequest setValue:self.message.text forHTTPHeaderField:@"message"];
-    [messagerequest setValue:@"1" forHTTPHeaderField:@"app_id"];
+    NSString *postData = [NSString stringWithFormat:@"message[username]=%@&message[content]=%@&message[app_id]=1", self.username.text, self.message.text];
+    [messagerequest setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
     NSError* error = nil;
+    NSLog(@"%@", messagerequest);
     
     NSData* data = [NSURLConnection sendSynchronousRequest:messagerequest returningResponse:nil error:&error];
     if (error) {
