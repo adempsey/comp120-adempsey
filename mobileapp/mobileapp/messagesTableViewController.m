@@ -29,7 +29,7 @@
     [request setURL:[NSURL URLWithString:@"http://0.0.0.0:3000/messages.json"]];
     [request setHTTPMethod:@"GET"];
     NSError* error = nil;
-    NSError* jsonError;
+    NSError* jsonError = nil;
     
     NSData* messagesData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     self.messages = [NSJSONSerialization JSONObjectWithData:messagesData options:0 error:&jsonError];
@@ -47,18 +47,16 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.messages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"content"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Posted by %@", [[self.messages objectAtIndex:indexPath.row] objectForKey:@"username"]];
     
     return cell;
 }
