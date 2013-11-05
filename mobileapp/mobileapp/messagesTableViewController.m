@@ -9,7 +9,7 @@
 #import "messagesTableViewController.h"
 
 @interface messagesTableViewController ()
-@property (weak, nonatomic) NSArray* messages;
+@property (strong) NSArray* messages;
 @end
 
 @implementation messagesTableViewController
