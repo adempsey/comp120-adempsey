@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="681" y="-179"/>
         </scene>
-        <!--Table View Controller - View Messages-->
+        <!--Messages Table View Controller - View Messages-->
         <scene sceneID="4R9-T8-hKs">
             <objects>
-                <tableViewController id="XNv-8F-OPp" sceneMemberID="viewController">
+                <tableViewController id="XNv-8F-OPp" customClass="messagesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uqE-Ge-rML">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

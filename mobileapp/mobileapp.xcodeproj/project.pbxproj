@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D92A572182967870038CE06 /* messagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D92A571182967870038CE06 /* messagesTableViewController.m */; };
 		8DCE5A3218284CEF0086385F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCE5A3118284CEF0086385F /* Foundation.framework */; };
 		8DCE5A3418284CEF0086385F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCE5A3318284CEF0086385F /* CoreGraphics.framework */; };
 		8DCE5A3618284CEF0086385F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCE5A3518284CEF0086385F /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D92A570182967870038CE06 /* messagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messagesTableViewController.h; sourceTree = "<group>"; };
+		8D92A571182967870038CE06 /* messagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messagesTableViewController.m; sourceTree = "<group>"; };
 		8DCE5A2E18284CEF0086385F /* mobileapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DCE5A3118284CEF0086385F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DCE5A3318284CEF0086385F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,8 @@
 				8DCE5A4018284CEF0086385F /* AppDelegate.h */,
 				8DCE5A4118284CEF0086385F /* AppDelegate.m */,
 				8DCE5A4318284CEF0086385F /* Main.storyboard */,
+				8D92A570182967870038CE06 /* messagesTableViewController.h */,
+				8D92A571182967870038CE06 /* messagesTableViewController.m */,
 				8DCE5A4618284CEF0086385F /* ViewController.h */,
 				8DCE5A4718284CEF0086385F /* ViewController.m */,
 				8DCE5A4918284CEF0086385F /* Images.xcassets */,
@@ -252,6 +257,7 @@
 				8DCE5A4818284CEF0086385F /* ViewController.m in Sources */,
 				8DCE5A4218284CEF0086385F /* AppDelegate.m in Sources */,
 				8DCE5A3E18284CEF0086385F /* main.m in Sources */,
+				8D92A572182967870038CE06 /* messagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +466,7 @@
 				8DCE5A6218284CF00086385F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DCE5A6318284CF00086385F /* Build configuration list for PBXNativeTarget "mobileappTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +475,7 @@
 				8DCE5A6518284CF00086385F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
