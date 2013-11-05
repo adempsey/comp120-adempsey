@@ -34,7 +34,6 @@
     NSString *postData = [NSString stringWithFormat:@"message[username]=%@&message[content]=%@&message[app_id]=1", self.username.text, self.message.text];
     [messagerequest setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
     NSError* error = nil;
-    NSLog(@"%@", messagerequest);
     
     NSData* data = [NSURLConnection sendSynchronousRequest:messagerequest returningResponse:nil error:&error];
     if (error) {
@@ -45,7 +44,7 @@
         self.messageStatus.text = @"Message sent successfully";
     }
     (void) data;
-    [self.view endEditing:YES];
+    [self dismissKeyboard];
 }
 
 - (void)dismissKeyboard {
