@@ -24,7 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:@"http://0.0.0.0:3000/messages.json"]];
     [request setHTTPMethod:@"GET"];
@@ -33,10 +36,10 @@
     
     NSData* messagesData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     self.messages = [NSJSONSerialization JSONObjectWithData:messagesData options:0 error:&jsonError];
+    [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
