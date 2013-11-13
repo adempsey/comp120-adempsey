@@ -9,16 +9,13 @@
 #import "messagesTableViewController.h"
 
 @interface messagesTableViewController ()
-@property (strong) NSArray* messages;
+@property (strong) __block NSArray* messages;
 @end
 
 @implementation messagesTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
@@ -31,12 +28,20 @@
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:@"http://0.0.0.0:3000/messages.json"]];
     [request setHTTPMethod:@"GET"];
-    NSError* error = nil;
-    NSError* jsonError = nil;
     
-    NSData* messagesData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    self.messages = [NSJSONSerialization JSONObjectWithData:messagesData options:0 error:&jsonError];
-    [self.tableView reloadData];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[[NSOperationQueue alloc] init]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if (connectionError) {
+                                   NSLog(@"Error");
+                               } else {
+                                   self.messages = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+								   dispatch_async(dispatch_get_main_queue(), ^{
+									   [self.tableView reloadData];
+								   });
+                               }
+                           }];
+	
 }
 
 - (void)didReceiveMemoryWarning {

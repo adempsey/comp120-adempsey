@@ -14,15 +14,12 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -33,17 +30,22 @@
     [messagerequest setHTTPMethod:@"POST"];
     NSString *postData = [NSString stringWithFormat:@"message[username]=%@&message[content]=%@&message[app_id]=1", self.username.text, self.message.text];
     [messagerequest setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
-    NSError* error = nil;
     
-    NSData* data = [NSURLConnection sendSynchronousRequest:messagerequest returningResponse:nil error:&error];
-    if (error) {
-        self.messageStatus.textColor = [UIColor redColor];
-        self.messageStatus.text = @"Error sending message";
-    } else {
-        self.messageStatus.textColor = [UIColor greenColor];
-        self.messageStatus.text = @"Message sent successfully";
-    }
-    (void) data;
+    [NSURLConnection sendAsynchronousRequest:messagerequest
+                                       queue:[[NSOperationQueue alloc] init]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if (connectionError) {
+								   dispatch_async(dispatch_get_main_queue(), ^{
+									   self.messageStatus.textColor = [UIColor redColor];
+									   self.messageStatus.text = @"Error sending message";
+								   });
+                               } else {
+								   dispatch_async(dispatch_get_main_queue(), ^{
+									   self.messageStatus.textColor = [UIColor greenColor];
+									   self.messageStatus.text = @"Message sent successfully";
+								   });
+							   }
+                           }];
     [self dismissKeyboard];
 }
 
