@@ -9,7 +9,7 @@
 #import "messagesTableViewController.h"
 
 @interface messagesTableViewController ()
-@property (strong) __block NSArray* messages;
+@property (strong) __block NSMutableArray* messages;
 @end
 
 @implementation messagesTableViewController
@@ -25,6 +25,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	[self.messages removeAllObjects];
+	[self.tableView reloadData];
+	
+	__block UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	[indicator startAnimating];
+	indicator.frame = CGRectMake(
+								 self.view.frame.size.width/2 - indicator.frame.size.width+12,
+								 self.view.frame.size.height/2+48,
+								 indicator.frame.size.width,
+								 indicator.frame.size.height);
+	indicator.autoresizingMask = UIViewAutoresizingNone;
+	[self.view addSubview:indicator];
+	
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:@"http://0.0.0.0:3000/messages.json"]];
     [request setHTTPMethod:@"GET"];
@@ -35,8 +48,9 @@
                                if (connectionError) {
                                    NSLog(@"Error");
                                } else {
-                                   self.messages = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                   self.messages = [NSMutableArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]];
 								   dispatch_async(dispatch_get_main_queue(), ^{
+									   [indicator removeFromSuperview];
 									   [self.tableView reloadData];
 								   });
                                }
