@@ -25,15 +25,15 @@
 }
 
 - (IBAction)sendMessage:(id)sender {
-	__block UIActivityIndicatorView* iv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	[iv startAnimating];
-	iv.frame = CGRectMake(
-						  self.view.frame.size.width/2 - iv.frame.size.width+12,
+	__block UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	[indicator startAnimating];
+	indicator.frame = CGRectMake(
+						  self.view.frame.size.width/2 - indicator.frame.size.width+12,
 						  self.view.frame.size.height/2+48,
-						  iv.frame.size.width,
-						  iv.frame.size.height );
-	iv.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-	[self.view addSubview:iv];
+						  indicator.frame.size.width,
+						  indicator.frame.size.height);
+	indicator.autoresizingMask = UIViewAutoresizingNone;
+	[self.view addSubview:indicator];
 	self.messageStatus.text = @"";
 	
     NSMutableURLRequest* messagerequest = [[NSMutableURLRequest alloc] init];
@@ -49,13 +49,13 @@
 								   dispatch_async(dispatch_get_main_queue(), ^{
 									   self.messageStatus.textColor = [UIColor redColor];
 									   self.messageStatus.text = @"Error sending message";
-									   [iv removeFromSuperview];
+									   [indicator removeFromSuperview];
 								   });
                                } else {
 								   dispatch_async(dispatch_get_main_queue(), ^{
 									   self.messageStatus.textColor = [UIColor greenColor];
 									   self.messageStatus.text = @"Message sent successfully";
-									   [iv removeFromSuperview];
+									   [indicator removeFromSuperview];
 								   });
 							   }
                            }];
