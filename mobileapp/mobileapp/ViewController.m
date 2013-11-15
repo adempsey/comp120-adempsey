@@ -45,7 +45,8 @@
     [NSURLConnection sendAsynchronousRequest:messagerequest
                                        queue:[[NSOperationQueue alloc] init]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               if (connectionError) {
+							   NSInteger statusCode = [(NSHTTPURLResponse*)response statusCode];
+                               if (connectionError || statusCode!=200) {
 								   dispatch_async(dispatch_get_main_queue(), ^{
 									   self.messageStatus.textColor = [UIColor redColor];
 									   self.messageStatus.text = @"Error sending message";
