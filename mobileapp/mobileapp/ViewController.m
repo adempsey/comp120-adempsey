@@ -37,7 +37,7 @@
 	self.messageStatus.text = @"";
 	
     NSMutableURLRequest* messagerequest = [[NSMutableURLRequest alloc] init];
-    [messagerequest setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://0.0.0.0:3000/messages"]]];
+    [messagerequest setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://messagehub.herokuapp.com/messages.json"]]];
     [messagerequest setHTTPMethod:@"POST"];
     NSString *postData = [NSString stringWithFormat:@"message[username]=%@&message[content]=%@&message[app_id]=1", self.username.text, self.message.text];
     [messagerequest setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];

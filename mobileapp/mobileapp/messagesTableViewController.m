@@ -29,7 +29,7 @@
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
 	
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://0.0.0.0:3000/messages.json"]];
+    [request setURL:[NSURL URLWithString:@"http://messagehub.herokuapp.com/messages.json"]];
     [request setHTTPMethod:@"GET"];
     
     [NSURLConnection sendAsynchronousRequest:request
@@ -37,11 +37,13 @@
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                if (connectionError) {
 								   dispatch_async(dispatch_get_main_queue(), ^{
-									   NSLog(@"Error");
 									   [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
 								   });
 							   } else {
-                                   self.messages = [NSMutableArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]];
+                                   self.messages = [NSMutableArray arrayWithArray:[[[NSJSONSerialization JSONObjectWithData:data
+																													options:0
+																													  error:nil]
+																					reverseObjectEnumerator] allObjects]];
 								   dispatch_async(dispatch_get_main_queue(), ^{
 									   [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
 									   [self.tableView reloadData];
