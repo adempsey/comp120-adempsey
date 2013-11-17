@@ -73,7 +73,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     cell.textLabel.text = [[self.messages objectAtIndex:indexPath.row] objectForKey:@"content"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Posted by %@", [[self.messages objectAtIndex:indexPath.row] objectForKey:@"username"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Posted by %@ at %@", [[self.messages objectAtIndex:indexPath.row] objectForKey:@"username"], [[self.messages objectAtIndex:indexPath.row] objectForKey:@"created_at"]];
     
     return cell;
 }
